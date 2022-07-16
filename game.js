@@ -88,7 +88,7 @@ function move_alien() {
     }
 
     for (let i=0; i < Aliens.length; i++) {
-        if(Aliens[i] > (each_square.length + 100)) {
+        if(Aliens[i] > (each_square.length)) {
             display_results.innerHTML = 'GAME OVER'
             clearInterval(invadersid)
         }
@@ -107,7 +107,7 @@ function shoot(a) {
         each_square[current_laser_index].classList.remove('laser')
         current_laser_index -= width
         each_square[current_laser_index].classList.add('laser')
-        if (each_square[current_laser_index].classList.contains['invaders']) {
+        if (each_square[current_laser_index].classList.contains('invaders')) {
             each_square[current_laser_index].classList.remove('laser')
             each_square[current_laser_index].classList.remove('invaders')
             each_square[current_laser_index].classList.add('kaboom')
