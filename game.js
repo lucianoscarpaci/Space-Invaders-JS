@@ -5,6 +5,7 @@ let width = 15
 let direction = 1
 let invadersid = null
 let goingRight = true
+let Aliens_removed = []
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -22,9 +23,14 @@ const Aliens = [
 
 function display() {
     for (let i=0; i < Aliens.length; i++) {
-        each_square[Aliens[i]].classList.add('invaders')
+        if(!Aliens_removed.includes(i)) {
+            each_square[Aliens[i]].classList.add('invaders')
+        }
     }
 }
+
+display()
+
 function remove_aliens() {
     for (let i=0; i < Aliens.length; i++) {
         each_square[Aliens[i]].classList.remove('invaders')
@@ -94,9 +100,16 @@ function shoot(a) {
         current_laser_index -= width
         each_square[current_laser_index].classList.add('laser')
         if (each_square[current_laser_index].classList.contains['invaders']) {
-            each_square[current_laser_index],classList.remove('laser')
-            each_square[current_laser_index],classList.remove('laser')
-            each_square[current_laser_index],classList.add('laser')
+            each_square[current_laser_index].classList.remove('laser')
+            each_square[current_laser_index].classList.remove('invaders')
+            each_square[current_laser_index].classList.add('kaboom')
+
+            setTimeout(()=> each_square[current_laser_index].classList.remove('kaboom'), 300)
+            clearInterval(laser_id)
+
+            const Aliens_removed = Aliens.indexOf(current_laser_index)
+            Aliens_removed.push(Aliens_removed)
+
         }
 
     }
