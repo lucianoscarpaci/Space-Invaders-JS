@@ -6,6 +6,7 @@ let direction = 1
 let invadersid = null
 let goingRight = true
 let Aliens_removed = []
+let results = 0
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -76,6 +77,7 @@ function move_alien() {
     for (let i=0; i<Aliens.length; i++) {
         Aliens[i] += direction
     }
+    
     display()
 
     if (each_square[currentShooterIndex].classList.contains('invaders', 'shooter')) {
@@ -88,6 +90,10 @@ function move_alien() {
             display_results.innerHTML = 'GAME OVER'
             clearInterval(invadersid)
         }
+    }
+    if (remove_aliens.length === Aliens.length) {
+        display_results.innerHTML = 'YOU WIN'
+        clearInterval(invadersid)
     }
 }
 invadersid = setInterval(move_alien, 100)
@@ -109,6 +115,9 @@ function shoot(a) {
 
             const Aliens_removed = Aliens.indexOf(current_laser_index)
             Aliens_removed.push(Aliens_removed)
+            results++
+            display_results.innerHTML = results
+            console.log(remove_aliens)
 
         }
 
