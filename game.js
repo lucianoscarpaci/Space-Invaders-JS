@@ -3,6 +3,7 @@ let currentShooterIndex = 202
 let width = 15
 let direction = 1
 let invadersid = null
+let goingRight = true
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -49,11 +50,34 @@ function move_alien() {
     const RightEdge = Aliens[Aliens.length - 1] % width === width - 1
     remove_aliens()
 
+    if (RightEdge && goingRight) {
+        for (let i=0; i < Aliens.length; i++) {
+            Aliens[i] += width +1
+            direction = -1
+            goingRight = false
+        }
+    }
+
+    if (LeftEdge && !goingRight) {
+        for (let i=0; i < Aliens.length; i++) {
+            Aliens[i] += width -1
+            direction = 1
+            goingRight = true
+        }
+    }
+
     for (let i=0; i<Aliens.length; i++) {
         Aliens[i] += direction
     }
     display()
+
+    if (each_square[currentShooterIndex].classList.contains('invader', 'shooter')) {
+        console.log('game over')
+        clearInterval(invadersid)
+    }
 }
+
+invadersid = setInterval(move_alien, 100)
 
 invadersid = setInterval(make_move, 500)
 
