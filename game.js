@@ -24,11 +24,10 @@ const Aliens = [
 
 function display() {
     for (let i=0; i < Aliens.length; i++) {
-        if(!Aliens_removed.includes(i)) {
             each_square[Aliens[i]].classList.add('invaders')
-        }
     }
 }
+
 
 display()
 
@@ -93,7 +92,7 @@ function move_alien() {
             clearInterval(invadersid)
         }
     }
-    if (remove_aliens.length === Aliens.length) {
+    if (Aliens_removed.length === Aliens.length) {
         display_results.innerHTML = 'YOU WIN'
         clearInterval(invadersid)
     }
@@ -119,7 +118,7 @@ function shoot(a) {
             Aliens_removed.push(Aliens_removed)
             results++
             display_results.innerHTML = results
-            console.log(remove_aliens)
+            console.log(Aliens_removed)
 
         }
 
