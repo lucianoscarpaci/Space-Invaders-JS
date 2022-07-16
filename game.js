@@ -1,4 +1,5 @@
-const grid_space = document.querySelector('grid')
+const grid_space = document.querySelector('.grid')
+const display_results = document.querySelector('.results')
 let currentShooterIndex = 202
 let width = 15
 let direction = 1
@@ -72,8 +73,15 @@ function move_alien() {
     display()
 
     if (each_square[currentShooterIndex].classList.contains('invader', 'shooter')) {
-        console.log('game over')
+        display_results.innerHTML = 'GAME OVER'
         clearInterval(invadersid)
+    }
+
+    for (let i=0; i < Aliens.length; i++) {
+        if(Aliens[i] > (each_square.length + 100)) {
+            display_results.innerHTML = 'GAME OVER'
+            clearInterval(invadersid)
+        }
     }
 }
 
