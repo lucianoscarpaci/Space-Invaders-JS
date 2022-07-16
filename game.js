@@ -72,7 +72,7 @@ function move_alien() {
     }
     display()
 
-    if (each_square[currentShooterIndex].classList.contains('invader', 'shooter')) {
+    if (each_square[currentShooterIndex].classList.contains('invaders', 'shooter')) {
         display_results.innerHTML = 'GAME OVER'
         clearInterval(invadersid)
     }
@@ -84,8 +84,26 @@ function move_alien() {
         }
     }
 }
-
 invadersid = setInterval(move_alien, 100)
 
-invadersid = setInterval(make_move, 500)
+function shoot(a) {
+    let laser_id
+    let current_laser_index = currentShooterIndex
+    function move_laser() {
+        each_square[current_laser_index].classList.remove('laser')
+        current_laser_index -= width
+        each_square[current_laser_index].classList.add('laser')
+        if (each_square[current_laser_index].classList.contains['invaders']) {
+            each_square[current_laser_index],classList.remove('laser')
+            each_square[current_laser_index],classList.remove('laser')
+            each_square[current_laser_index],classList.add('laser')
+        }
 
+    }
+    switch(a.key) {
+        case'ArrowUp':
+            laser_id = setInterval(move_laser, 100)
+    }
+}
+
+document.addEventListener('keydown', shoot)
