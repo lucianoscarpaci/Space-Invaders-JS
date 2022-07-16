@@ -1,6 +1,8 @@
 const grid_space = document.querySelector('grid')
 let currentShooterIndex = 202
 let width = 15
+let direction = 1
+let invadersid = null
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -21,7 +23,11 @@ function display() {
         each_square[Aliens[i]].classList.add('invaders')
     }
 }
-
+function remove_aliens() {
+    for (let i=0; i < Aliens.length; i++) {
+        each_square[Aliens[i]].classList.remove('invaders')
+    }
+}
 each_square[currentShooterIndex].classList.add('shooter')
 
 function make_move(a) {
@@ -37,4 +43,17 @@ function make_move(a) {
     each_square[currentShooterIndex].classList.add('shooter')
 }
 document.addEventListener('keydown', make_move)
+
+function move_alien() {
+    const LeftEdge = Aliens[0] % width === 0
+    const RightEdge = Aliens[Aliens.length - 1] % width === width - 1
+    remove_aliens()
+
+    for (let i=0; i<Aliens.length; i++) {
+        Aliens[i] += direction
+    }
+    display()
+}
+
+invadersid = setInterval(make_move, 500)
 
