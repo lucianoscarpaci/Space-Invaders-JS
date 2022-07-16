@@ -121,7 +121,7 @@ function shoot(a) {
          setTimeout(()=> eachSquare[currentLaserIndex].classList.remove('kaboom'), 300)
          clearInterval(laser_id)
 
-         const Aliens_removed = Aliens.indexOf(currentLaserIndex)
+         const Alien_removed = Aliens.indexOf(currentLaserIndex)
          Aliens_removed.push(Aliens_removed)
          results++
          display_results.innerHTML = results
