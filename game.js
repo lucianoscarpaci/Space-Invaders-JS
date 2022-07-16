@@ -3,7 +3,7 @@ const display_results = document.querySelector('.results')
 let currentShooterIndex = 202
 let width = 15
 let direction = 1
-let invadersid = null
+let invadersid
 let goingRight = true
 let Aliens_removed = []
 let results = 0
@@ -24,21 +24,25 @@ const Aliens = [
 
 function display() {
     for (let i=0; i < Aliens.length; i++) {
+        if(!Aliens_removed.includes(i)) {
             each_square[Aliens[i]].classList.add('invaders')
-    }
+        }
+    }    
 }
 
 
 display()
 
 function remove_aliens() {
-        for (let i=0; i < Aliens.length; i++) {
-            if(!Aliens_removed.includes(i)) {
-            each_square[Aliens[i]].classList.remove('invaders')
-        }
+    for (let i = 0; i < Aliens.length; i++) {
+        each_square[Aliens[i]].classList.remove('invaders')
     }
 }
+
+
 each_square[currentShooterIndex].classList.add('shooter')
+
+
 
 function make_move(a) {
     each_square[currentShooterIndex].classList.remove('shooter')
@@ -56,11 +60,11 @@ document.addEventListener('keydown', make_move)
 
 function move_alien() {
     const LeftEdge = Aliens[0] % width === 0
-    const RightEdge = Aliens[Aliens.length - 1] % width === width - 1
+    const RightEdge = Aliens[Aliens.length - 1] % width === width -1
     remove_aliens()
 
     if (RightEdge && goingRight) {
-        for (let i=0; i < Aliens.length; i++) {
+        for (let i = 0; i < Aliens.length; i++) {
             Aliens[i] += width +1
             direction = -1
             goingRight = false
@@ -97,7 +101,8 @@ function move_alien() {
         clearInterval(invadersid)
     }
 }
-invadersid = setInterval(move_alien, 300)
+invadersid = setInterval(move_alien, 600)
+
 
 function shoot(a) {
     let laser_id
