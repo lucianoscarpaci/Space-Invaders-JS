@@ -33,8 +33,10 @@ function display() {
 display()
 
 function remove_aliens() {
-    for (let i=0; i < Aliens.length; i++) {
-        each_square[Aliens[i]].classList.remove('invaders')
+        for (let i=0; i < Aliens.length; i++) {
+            if(!Aliens_removed.includes(i)) {
+            each_square[Aliens[i]].classList.remove('invaders')
+        }
     }
 }
 each_square[currentShooterIndex].classList.add('shooter')
@@ -96,7 +98,7 @@ function move_alien() {
         clearInterval(invadersid)
     }
 }
-invadersid = setInterval(move_alien, 100)
+invadersid = setInterval(move_alien, 300)
 
 function shoot(a) {
     let laser_id
