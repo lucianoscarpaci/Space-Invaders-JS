@@ -7,6 +7,7 @@ let invadersid
 let goingRight = true
 let Aliens_removed = []
 let results = 0
+let level = 1
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -108,9 +109,9 @@ function shoot(a) {
     let laser_id
     let currentLaserIndex = currentShooterIndex
     function move_laser() {
-        eachSquare[currentLaserIndex].classList.remove('laser');
+        eachSquare[currentLaserIndex].classList.remove('laser')
         currentLaserIndex -= width
-        eachSquare[currentLaserIndex].classList.add('laser');
+        eachSquare[currentLaserIndex].classList.add('laser')
 
 
         if (eachSquare[currentLaserIndex].classList.contains('invaders')) {
