@@ -123,8 +123,8 @@ function shoot(a) {
 
          const Alien_removed = Aliens.indexOf(currentLaserIndex)
          Aliens_removed.push(Alien_removed)
-         results++
-         let scoreText = "Score: ";
+         results += 250
+         let scoreText = "Score: "
          display_results.innerHTML = scoreText.concat(results)
          console.log(Aliens_removed)
 
