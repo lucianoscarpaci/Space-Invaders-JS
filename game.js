@@ -108,9 +108,9 @@ function shoot(a) {
     let laser_id
     let currentLaserIndex = currentShooterIndex
     function move_laser() {
-        eachSquare[currentLaserIndex].classList.remove('laser')
+        eachSquare[currentLaserIndex].classList.remove('laser');
         currentLaserIndex -= width
-        eachSquare[currentLaserIndex].classList.add('laser')
+        eachSquare[currentLaserIndex].classList.add('laser');
 
 
         if (eachSquare[currentLaserIndex].classList.contains('invaders')) {
@@ -122,7 +122,7 @@ function shoot(a) {
          clearInterval(laser_id)
 
          const Alien_removed = Aliens.indexOf(currentLaserIndex)
-         Aliens_removed.push(Aliens_removed)
+         Aliens_removed.push(Alien_removed)
          results++
          display_results.innerHTML = results
          console.log(Aliens_removed)
