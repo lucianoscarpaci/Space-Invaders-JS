@@ -8,7 +8,6 @@ let invadersid
 let goingRight = true
 let Aliens_removed = []
 let results = 0
-let level = 0
 
 for (let i = 0; i < 225; i++) {
     const small_square = document.createElement('div')
@@ -99,9 +98,8 @@ function move_alien() {
         }
     }
     if (Aliens_removed.length === Aliens.length) {
-        level = 1
-        let levelText = "Level: "
-        display_levels.innerHTML = levelText.concat(level)
+        display_levels.innerHTML = 'GAME OVER'
+        display_results.innerHTML = 'YOU WIN!'
         clearInterval(invadersid)
     }
 }
