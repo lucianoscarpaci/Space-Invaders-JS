@@ -87,6 +87,7 @@ function move_alien() {
     display()
 
     if (eachSquare[currentShooterIndex].classList.contains('invaders', 'shooter')) {
+        display_levels.innerHTML = 'YOU LOOSE!'
         display_results.innerHTML = 'GAME OVER'
         clearInterval(invadersid)
     }
