@@ -124,7 +124,8 @@ function shoot(a) {
          const Alien_removed = Aliens.indexOf(currentLaserIndex)
          Aliens_removed.push(Alien_removed)
          results++
-         display_results.innerHTML = results
+         let scoreText = "Score: ";
+         display_results.innerHTML = scoreText.concat(results)
          console.log(Aliens_removed)
 
         
