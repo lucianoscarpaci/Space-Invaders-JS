@@ -1,5 +1,6 @@
 const grid_space = document.querySelector('.grid')
 const display_results = document.querySelector('.results')
+const display_levels = document.querySelector('.level')
 let currentShooterIndex = 202
 let width = 15
 let direction = 1
@@ -98,8 +99,9 @@ function move_alien() {
         }
     }
     if (Aliens_removed.length === Aliens.length) {
-        display_results.innerHTML = 'YOU WIN'
-        clearInterval(invadersid)
+        level += 1
+        let levelText = "Level: "
+        display_levels.innerHTML = levelText.concat(level)
     }
 }
 invadersid = setInterval(move_alien, 600)
