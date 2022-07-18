@@ -1,7 +1,6 @@
 import InvaderController from "./InvaderController.js";
 import Player1 from "./Player1.js";
 import laserController from "./laserController.js";
-import laserController from "./laserController.js";
 const canvas = document.getElementById("game");
 const ctext = canvas.getContext("2d");
 canvas.width=600;
