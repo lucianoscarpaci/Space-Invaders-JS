@@ -9,4 +9,10 @@ export default class Laser{
         this.height = 20;
         
     }
+
+    draw(ctext) {
+        this.y -= this.velocity;
+        ctext.fillStyle = this.laserColor;
+        ctext.fillRect(this.x, this.y, this.width, this.height);
+    }
 }

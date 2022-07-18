@@ -13,8 +13,17 @@ export default class laserController {
         this.shooterSound.volume = 0.5;
     }
 
+    draw(ctext) {
+         this.lasers = this.lasers.filter(laser=>laser.y + laser.width > 0 && laser.y <= this.canvas.height)
+         this.lasers.forEach((laser)=>laser.draw(ctext));
+        if(this.timeTilNextLaserAllowed > 0) {
+            this.timeTilNextLaserAllowed--;
+        }
+    }
+
     shoot(x, y, velocity, timeTilNextLaserAllowed = 0) {
-        if(this.timeTilNextLaserAllowed <= 0 && this.lasers.length < this.maxNoOfLasers
+        if(this.timeTilNextLaserAllowed <= 0 && 
+            this.lasers.length < this.maxNoOfLasers
             ) {
                 const laser = new Laser(this.canvas,x,y,velocity,this.laserColor);
                 this.lasers.push(laser);
