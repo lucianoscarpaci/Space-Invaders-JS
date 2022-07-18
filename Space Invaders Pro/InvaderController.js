@@ -63,15 +63,22 @@ export default class InvaderController {
                     this.currentMovingDirection = InvaderDirection.downLeft;
                     break;
                 }
-            }
-            /* try next moving direction that change to after moving right*/
-            else if(this.currentMovingDirection === InvaderDirection.downLeft) {
-                if(this.moveDown(this.currentMovingDirection.left)){
+            } else if(this.currentMovingDirection === InvaderDirection.downLeft) {
+                if(this.moveDown(this.currentMovingDirection.Left)){
+                    break;
+                }/* check current direction */
+            } else if(this.currentMovingDirection === InvaderDirection.Left) {
+                this.xVelocity = -this.defaultXVelocity; //value -1
+                this.yVelocity = 0;
+                const leftMostInvader = invaderRow[0];
+                if(leftMostInvader.x <= 0) {
+                    this.currentMovingDirection = InvaderDirection.downRight;
                     break;
                 }
             }
         }
     }
+    
 
     moveDown(newDirection){
         this.xVelocity = 0;
