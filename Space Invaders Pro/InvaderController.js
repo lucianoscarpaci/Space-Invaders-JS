@@ -64,7 +64,7 @@ export default class InvaderController {
                     break;
                 }
             } else if(this.currentMovingDirection === InvaderDirection.downLeft) {
-                if(this.moveDown(this.currentMovingDirection.Left)){
+                if(this.moveDown(this.InvaderDirection.Left)){
                     break;
                 }/* check current direction */
             } else if(this.currentMovingDirection === InvaderDirection.Left) {
@@ -74,6 +74,10 @@ export default class InvaderController {
                 if(leftMostInvader.x <= 0) {
                     this.currentMovingDirection = InvaderDirection.downRight;
                     break;
+                }
+            } else if(this.currentMovingDirection === InvaderDirection.downRight) {
+                if(this.moveDown(InvaderDirection.Right)) {
+                    
                 }
             }
         }
