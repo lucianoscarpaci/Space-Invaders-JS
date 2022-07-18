@@ -1,7 +1,7 @@
 👾**Space-Invaders-JS**👾 \
 Two Games of the classic arcade game Space Invaders. \
-Simple Space Invaders directory is game 1. \
-Pro Space Invaders directory is game 2. \
+Space Invaders Basic directory is game 1. \
+Space Invaders Pro directory is game 2. \
 
 
 
