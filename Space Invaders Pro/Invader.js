@@ -7,7 +7,11 @@ export default class Invader {
         this.width = 44;
         this.height = 32;
         /* Gets the images from the game */
-        this.game = new Game();
-        this.game.src = 'game/enemy${imageNumber}.png';
+        this.image = new Image();
+        this.image.src = `game/enemy${imageNumber}.png`;
+    }
+    /* add a draw method */
+    draw(ctext) {
+        ctext.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
 }

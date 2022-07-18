@@ -21,7 +21,13 @@ export default class InvaderController {
     }
 
     draw(ctext) {
-        
+        this.drawInvaders(ctext);
+    }
+
+    drawInvaders(ctext){
+        this.invaderRows.flat().forEach((invader)=>{
+            invader.draw(ctext);
+        });
     }
 
     createAliens() {
