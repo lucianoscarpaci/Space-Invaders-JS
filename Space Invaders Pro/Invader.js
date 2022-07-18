@@ -14,4 +14,10 @@ export default class Invader {
     draw(ctext) {
         ctext.drawImage(this.image, this.x, this.y, this.width, this.height);
     }
+    /*Move method for InvaderController */
+    move(xVelocity, yVelocity) {
+    this.x += xVelocity;
+    this.y += yVelocity;
+    }
+
 }
