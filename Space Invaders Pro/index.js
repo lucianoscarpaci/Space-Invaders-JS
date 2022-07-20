@@ -20,12 +20,39 @@ const invaderController = new InvaderController(
 //const invaderController = new InvaderController(canvas, invaderLaserController);
 const player = new Player1(canvas, 3, laserShootController);
 
+let endGame = false;
+let checkWin = false;
+
 function startGame() {
    ctext.drawImage(background, 0, 0, canvas.width, canvas.height);
+displayEndGame();
+   if(!endGame){
    invaderController.draw(ctext);
    player.draw(ctext);
    laserShootController.draw(ctext);
    invaderLaserController.draw(ctext);
+   }
+}
+
+function displayEndGame(){
+    if (endGame) {
+        let text = checkWin ? "You Win" : "Game Over";
+        let textOffset = checkWin ? 3.5 : 5;
+
+        ctext.fillStyle = "white";
+        ctext.font = "70px Press Start 2P";
+        ctext.fillText(text, canvas.width / textOffset, canvas.height / 2);
+    }
+}
+
+function checkEndGame() {
+    if(endGame){
+        return;
+    }
+
+    if(invaderLaserController.collisionWith(player)){
+        endGame = true;
+    }
 }
 
 setInterval(startGame,1000/60);
