@@ -30,6 +30,8 @@ export default class InvaderController {
         this.canvas = canvas;
         this.invaderLaserController = invaderLaserController;
         this.laserShootController = laserShootController;
+        this.invaderDeathSound = new Audio('sound/enemy-death.wav');
+        this.invaderDeathSound.volume = 0.5;
 
         this.createAliens();
     }
@@ -47,7 +49,8 @@ export default class InvaderController {
         this.invaderRows.forEach(invaderRow =>{
             invaderRow.forEach((invader, invaderIndex)=>{
                 if(this.laserShootController.collisionWith(invader)){
-                    //sound to hit an enemy
+                    this.invaderDeathSound.currentTime = 0;
+                    this.invaderDeathSound.play();
                     invaderRow.splice(invaderIndex, 1);
                 }
             });

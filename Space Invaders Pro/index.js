@@ -18,7 +18,7 @@ const invaderController = new InvaderController(
     laserShootController,
 );
 //const invaderController = new InvaderController(canvas, invaderLaserController);
-//const player = new Player1(canvas, 3, laserShootController);
+const player = new Player1(canvas, 3, laserShootController);
 
 function startGame() {
    ctext.drawImage(background, 0, 0, canvas.width, canvas.height);
