@@ -26,9 +26,11 @@ export default class InvaderController {
     timerShootLaserTimerDefaultValue = 100;
     timerShootLaser = this.timerShootLaserTimerDefaultValue;
 
-    constructor(canvas, invaderLaserController) {
+    constructor(canvas, invaderLaserController, laserShootController) {
         this.canvas = canvas;
         this.invaderLaserController = invaderLaserController;
+        this.laserShootController = laserShootController;
+
         this.createAliens();
     }
     /* The draw method */
