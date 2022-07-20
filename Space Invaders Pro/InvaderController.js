@@ -23,9 +23,12 @@ export default class InvaderController {
     defaultYVelocity = 1;
     timerMoveDownDefaultValue = 30;
     timerMoveDown = this.timerMoveDownDefaultValue;
+    timerShootLaserTimerDefaultValue = 100;
+    timerShootLaser = this.timerShootLaserTimerDefaultValue;
 
-    constructor(canvas) {
+    constructor(canvas, invaderLaserController) {
         this.canvas = canvas;
+        this.invaderLaserController = invaderLaserController;
         this.createAliens();
     }
     /* The draw method */
@@ -34,6 +37,18 @@ export default class InvaderController {
         this.updateVelocityAndDirection();
         this.drawInvaders(ctext);
         this.resetTimerMoveDown();
+        this.shootLaser();
+    }
+
+    shootLaser() {
+        this.timerShootLaser--;
+        if(this.timerShootLaser <= 0) {
+            this.timerShootLaser = this.timerShootLaserTimerDefaultValue;
+            const allInvaders = this.invaderRows.flat();
+            const invaderIndex = Math.floor(Math.random() * allInvaders.length);
+            const invader = allInvaders[invaderIndex];
+            this.invaderLaserController.shootLaser(invader.x, invader.y, -3);
+        }
     }
 
     resetTimerMoveDown() {

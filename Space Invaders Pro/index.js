@@ -3,6 +3,7 @@ import Player1 from "./Player1.js";
 import laserController from "./laserController.js";
 const canvas = document.getElementById("game");
 const ctext = canvas.getContext("2d");
+
 canvas.width=600;
 canvas.height=600;
 
@@ -15,7 +16,7 @@ const invaderController = new InvaderController(canvas, invaderLaserController);
 const player = new Player1(canvas, 3, laserShootController);
 
 function startGame() {
-   ctext.drawImage(background,0,0, canvas.width, canvas.height);
+   ctext.drawImage(background, 0, 0, canvas.width, canvas.height);
    invaderController.draw(ctext);
    player.draw(ctext);
    laserShootController.draw(ctext);
