@@ -38,8 +38,22 @@ export default class InvaderController {
         this.timerMoveDownDecrement();
         this.updateVelocityAndDirection();
         this.drawInvaders(ctext);
+        this.collisionDetector();
         this.resetTimerMoveDown();
         this.shootLaser();
+    }
+
+    collisionDetector() {
+        this.invaderRows.forEach(invaderRow =>{
+            invaderRow.forEach((invader, invaderIndex)=>{
+                if(this.laserShootController.collisionWith(invader)){
+                    //sound to hit an enemy
+                    invaderRow.splice(invaderIndex, 1);
+                }
+            });
+        });
+
+        this.invaderRows = this.invaderRows.filter((invaderRow)=> invaderRow.length>0);
     }
 
     shootLaser() {
