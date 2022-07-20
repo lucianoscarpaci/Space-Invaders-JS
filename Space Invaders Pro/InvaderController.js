@@ -47,7 +47,7 @@ export default class InvaderController {
             const allInvaders = this.invaderRows.flat();
             const invaderIndex = Math.floor(Math.random() * allInvaders.length);
             const invader = allInvaders[invaderIndex];
-            this.invaderLaserController.shootLaser(invader.x, invader.y, -3);
+            this.invaderLaserController.shoot(invader.x, invader.y, -3);
         }
     }
 
